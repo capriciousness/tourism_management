@@ -11,6 +11,7 @@
 
 
     <artifactId>pluto_ssm_service</artifactId>
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>pers.pluto.pluto_ssm</groupId>

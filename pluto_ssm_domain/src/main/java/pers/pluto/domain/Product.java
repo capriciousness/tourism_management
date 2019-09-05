@@ -1,4 +1,4 @@
-package pers.pluto;
+package pers.pluto.domain;
 
 import pers.pluto.utils.DateUtils;
 

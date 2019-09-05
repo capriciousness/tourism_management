@@ -11,6 +11,6 @@
 
     <groupId>pers.pluto.pluto_ssm</groupId>
     <artifactId>pluto_ssm_utils</artifactId>
-
+    <packaging>jar</packaging>
 
 </project>

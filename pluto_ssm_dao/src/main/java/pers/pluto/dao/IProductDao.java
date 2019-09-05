@@ -1,8 +1,9 @@
-package pers.pluto;
+package pers.pluto.dao;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+import pers.pluto.domain.Product;
 
 import java.util.List;
 

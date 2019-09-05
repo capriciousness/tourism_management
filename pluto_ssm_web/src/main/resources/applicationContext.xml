@@ -16,7 +16,7 @@
     <!-- 开启注解扫描，管理service和dao -->
     <context:component-scan base-package="pers.pluto.dao">
     </context:component-scan>
-    <context:component-scan base-package="pers.pluto.service">
+    <context:component-scan base-package="pers.pluto.service.impl">
     </context:component-scan>
 
     <context:property-placeholder location="classpath:db.properties"/>

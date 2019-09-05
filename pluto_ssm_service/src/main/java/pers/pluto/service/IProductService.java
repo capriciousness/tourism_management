@@ -1,5 +1,7 @@
-package pers.pluto;
+package pers.pluto.service;
 
+
+import pers.pluto.domain.Product;
 
 import java.util.List;
 

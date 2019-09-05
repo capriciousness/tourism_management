@@ -11,6 +11,7 @@
 
     <groupId>pers.pluto.pluto_ssm</groupId>
     <artifactId>pluto_ssm_dao</artifactId>
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>pers.pluto.pluto_ssm</groupId>
