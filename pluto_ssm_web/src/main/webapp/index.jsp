@@ -2,7 +2,9 @@
          pageEncoding="UTF-8"%>
 <html>
 <body>
-<h2>Hello World!</h2>
-<a href="${pageContext.request.contextPath}/product/findAll.do">查询所有产品信息</a>
+
+<%--<a href="${pageContext.request.contextPath}/product/findAll.do">查询所有产品信息</a>--%>
+<jsp:forward page="/pages/main.jsp"></jsp:forward>
+
 </body>
 </html>
