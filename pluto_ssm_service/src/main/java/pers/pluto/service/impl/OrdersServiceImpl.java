@@ -17,7 +17,6 @@ public class OrdersServiceImpl implements IOrdersService {
     @Autowired
     private IOrdersDao ordersDao;
 
-    //分页查询所有产品信息
     @Override
     public List<Orders> findAll(int page, int size) throws Exception {
 
@@ -30,5 +29,4 @@ public class OrdersServiceImpl implements IOrdersService {
     public Orders findById(String ordersId) throws Exception{
         return ordersDao.findById(ordersId);
     }
-
 }

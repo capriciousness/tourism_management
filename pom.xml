@@ -131,11 +131,13 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
+        <!--分页工具-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
             <version>5.1.2</version>
         </dependency>
+        <!--spring项目组中提供安全认证服务的框架-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
