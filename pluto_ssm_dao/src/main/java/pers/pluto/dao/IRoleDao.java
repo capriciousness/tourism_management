@@ -13,7 +13,7 @@ public interface IRoleDao {
             @Result(id = true, property = "id", column = "id"),
             @Result(property = "roleName", column = "roleName"),
             @Result(property = "roleDesc", column = "roleDesc"),
-            @Result(property = "permissions",column = "id",javaType = List.class,many = @Many(select = "com.itheima.ssm.dao.IPermissionDao.findPermissionByRoleId"))
+            @Result(property = "permissions",column = "id",javaType = List.class,many = @Many(select = "pers.pluto.dao.IPermissionDao.findPermissionByRoleId"))
     })
     public List<Role> findRoleByUserId(String userId) throws Exception;
 

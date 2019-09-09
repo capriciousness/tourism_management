@@ -1,11 +1,12 @@
 package pers.pluto.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import pers.pluto.service.IProductService;
 import pers.pluto.domain.Product;
+import pers.pluto.service.IProductService;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class ProductController {
 
     @Autowired
     private IProductService productService;
+
     //产品添加
     @RequestMapping("/save.do")
     public String save(Product product) throws Exception {
@@ -22,16 +24,14 @@ public class ProductController {
         return "redirect:findAll.do";
     }
 
-
-    //查询所有产品信息
+    //查询全部产品
     @RequestMapping("/findAll.do")
     public ModelAndView findAll() throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Product> ps = productService.findAll();
-        mv.addObject("productList",ps);
-        mv.setViewName("product-list");
-
+        mv.addObject("productList", ps);
+        mv.setViewName("product-list1");
         return mv;
-    }
 
+    }
 }

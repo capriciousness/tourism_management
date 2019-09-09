@@ -15,7 +15,7 @@ public interface IUserDao {
             @Result(property = "password", column = "password"),
             @Result(property = "phoneNum", column = "phoneNum"),
             @Result(property = "status", column = "status"),
-            @Result(property = "roles",column = "id",javaType = List.class,many = @Many(select = "com.itheima.ssm.dao.IRoleDao.findRoleByUserId"))
+            @Result(property = "roles",column = "id",javaType = List.class,many = @Many(select = "pers.pluto.dao.IRoleDao.findRoleByUserId"))
     })
     public UserInfo findByUsername(String username) throws Exception;
 
@@ -33,7 +33,7 @@ public interface IUserDao {
             @Result(property = "password", column = "password"),
             @Result(property = "phoneNum", column = "phoneNum"),
             @Result(property = "status", column = "status"),
-            @Result(property = "roles",column = "id",javaType = List.class,many = @Many(select = "com.itheima.ssm.dao.IRoleDao.findRoleByUserId"))
+            @Result(property = "roles",column = "id",javaType = List.class,many = @Many(select = "pers.pluto.dao.IRoleDao.findRoleByUserId"))
     })
     UserInfo findById(String id) throws Exception;
 }

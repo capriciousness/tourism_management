@@ -24,13 +24,15 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private IUserDao userDao;
+
+    //用户密码加密
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public UserInfo findById(String id) throws Exception{
+    public UserInfo findById(String id) throws Exception {
 
-        return  userDao.findById(id);
+        return userDao.findById(id);
     }
 
     @Override
@@ -54,8 +56,8 @@ public class UserServiceImpl implements IUserService {
             e.printStackTrace();
         }
         //处理自己的用户对象封装成UserDetails
-        //  User user=new User(userInfo.getUsername(),"{noop}"+userInfo.getPassword(),getAuthority(userInfo.getRoles()));
-        User user = new User(userInfo.getUsername(), userInfo.getPassword(), userInfo.getStatus() == 0 ? false : true, true, true, true, getAuthority(userInfo.getRoles()));
+       User user = new User(userInfo.getUsername(), "{noop}" + userInfo.getPassword(), getAuthority(userInfo.getRoles()));//getAuthority(userInfo.getRoles())
+        //User user = new User(userInfo.getUsername(), userInfo.getPassword(), userInfo.getStatus() == 0 ? false : true, true, true, true, getAuthority(userInfo.getRoles()));
         return user;
     }
 
@@ -68,4 +70,6 @@ public class UserServiceImpl implements IUserService {
         }
         return list;
     }
+
+
 }
