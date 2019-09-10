@@ -1,6 +1,7 @@
 package pers.pluto.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
+import pers.pluto.domain.Role;
 import pers.pluto.domain.UserInfo;
 
 import java.util.List;
@@ -11,4 +12,9 @@ public interface IUserService extends UserDetailsService {
     void save(UserInfo userInfo) throws Exception;
 
     UserInfo findById(String id) throws Exception;
+
+    List<Role> findOtherRoles(String userid);
+
+
+    void addRoleToUser(String userId, String[] roleIds);
 }
