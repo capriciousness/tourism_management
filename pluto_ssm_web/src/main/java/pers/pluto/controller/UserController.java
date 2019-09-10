@@ -65,7 +65,6 @@ public class UserController {
     }
 
     @RequestMapping("/findAll.do")
-    @Secured("ROLE_USER")
     public ModelAndView findAll() throws Exception {
         ModelAndView mv = new ModelAndView();
         List<UserInfo> userList = userService.findAll();
