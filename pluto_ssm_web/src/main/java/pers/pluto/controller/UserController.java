@@ -2,6 +2,7 @@ package pers.pluto.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,7 @@ public class UserController {
 
     //给用户添加角色
     @RequestMapping("/addRoleToUser.do")
+    @Secured("ROLE_ADMIN")
     public String addRoleToUser(@RequestParam(name = "userId", required = true) String userId, @RequestParam(name = "ids", required = true) String[] roleIds) {
         userService.addRoleToUser(userId, roleIds);
         return "redirect:findAll.do";
@@ -29,6 +31,7 @@ public class UserController {
 
     //查询用户以及用户可以添加的角色
     @RequestMapping("/findUserByIdAndAllRole.do")
+
     public ModelAndView findUserByIdAndAllRole(@RequestParam(name = "id", required = true) String userid) throws Exception {
         ModelAndView mv = new ModelAndView();
         //1.根据用户id查询用户
@@ -44,6 +47,7 @@ public class UserController {
 
     //查询指定id的用户
     @RequestMapping("/findById.do")
+    @Secured("ROLE_USER")
     public ModelAndView findById(String id) throws Exception{
         ModelAndView mv = new ModelAndView();
         UserInfo userInfo = userService.findById(id);
@@ -54,12 +58,14 @@ public class UserController {
 
     //用户添加
     @RequestMapping("/save.do")
+    @Secured("ROLE_ADMIN")
     public String save(UserInfo userInfo) throws Exception {
         userService.save(userInfo);
         return "redirect:findAll.do";
     }
 
     @RequestMapping("/findAll.do")
+    @Secured("ROLE_USER")
     public ModelAndView findAll() throws Exception {
         ModelAndView mv = new ModelAndView();
         List<UserInfo> userList = userService.findAll();

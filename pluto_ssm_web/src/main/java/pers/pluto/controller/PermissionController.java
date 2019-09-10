@@ -1,6 +1,7 @@
 package pers.pluto.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +18,7 @@ public class PermissionController {
     private IPermissionService permissionService;
 
     @RequestMapping("/save.do")
+    @Secured("ROLE_ADMIN")
     public String save(Permission permission) throws Exception {
         permissionService.save(permission);
         return "redirect:findAll.do";

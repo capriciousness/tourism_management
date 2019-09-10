@@ -2,6 +2,7 @@ package pers.pluto.controller;
 
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +30,7 @@ public class OrdersController {
 //    }
 
     //查询全部订单
+    @Secured("ROLE_USER")
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(@RequestParam(name = "page", required = true, defaultValue = "1") int page, @RequestParam(name = "size", required = true, defaultValue = "4") int size) throws Exception {
         ModelAndView mv = new ModelAndView();
@@ -42,6 +44,7 @@ public class OrdersController {
 
     //查询订单详情
     @RequestMapping("/findById.do")
+    @Secured("ROLE_ADMIN")
     public ModelAndView findById(@RequestParam(name = "id", required = true) String ordersId) throws Exception {
         ModelAndView mv = new ModelAndView();
         Orders orders = ordersService.findById(ordersId);

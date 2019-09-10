@@ -1,6 +1,7 @@
 package pers.pluto.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,7 @@ public class RoleController {
     private IRoleService roleService;
 
     @RequestMapping("/deleteRole.do")
+    @Secured("ROLE_ADMIN")
     public String deleteRole(@RequestParam(name="id",required = true) String roleId) throws Exception {
         roleService.deleteRoleById(roleId);
         return "redirect:findAll.do";
@@ -37,6 +39,7 @@ public class RoleController {
 
     //给角色添加权限
     @RequestMapping("/addPermissionToRole.do")
+    @Secured("ROLE_ADMIN")
     public String addPermissionToRole(@RequestParam(name = "roleId", required = true) String roleId, @RequestParam(name = "ids", required = true) String[] permissionIds) throws Exception {
         roleService.addPermissionToRole(roleId, permissionIds);
         return "redirect:findAll.do";

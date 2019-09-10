@@ -165,6 +165,7 @@
             <version>${mysql.version}</version>
         </dependency>
 
+        <!--配置支持角色权限控制-->
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>jsr250-api</artifactId>
